@@ -12,12 +12,12 @@ def generateUUID():
     return str(uuid4())
 size_x=1000
 size_y=800
-white=(255, 200, 150)
-black=(0, 50, 50)
-gray=(50, 50, 50)
+white=(255, 210, 155)
 red=(255, 0, 0)
 green=(0, 255, 0)
 blue=(0, 0, 255)
+black=(0, 50, 50)
+gray=(50, 50, 50)
 yellow=(255, 255, 0)
 pygame.init()
 width = 800
@@ -381,7 +381,7 @@ def singleplayer():
         if bullet1.x in range(wall20.x,wall20.x+30) and bullet1.y in range(wall20.y,wall20.y+30):    
             wall20.x=1000
             wall20.y=1000
-            boom.play()
+            boom.play()#score
         if bullet2.x in range(wall.x,wall.x+30) and bullet2.y in range(wall.y,wall.y+30):
             wall.x=1000
             wall.y=1000
@@ -708,7 +708,7 @@ def singleplayer():
             boom.play()
             wall20.x=a
             wall20.y=b
-        #
+        #life
         if tt1 == True:
             font = pygame.font.SysFont(None,40)
             score_1 = font.render("white: " + str(life1), True, white)
@@ -724,7 +724,7 @@ def singleplayer():
             tt1=True
             pp1=False
         if pp2==True:
-            life1=life1-1
+            life2=life2-1
             tt2=True
             pp2=False
         screen.fill((0,125,255 ))
@@ -785,13 +785,13 @@ def singleplayer():
             text_2 = font.render('W H I T E', True, white)
             screen.blit(text_2, (350, 200))
             screen.blit(text_3, (350, 280))
-        if life1 <= 0 :
+        if life2 <= 0 :
             fon.stop()
             pygame.draw.rect(screen, (0, 0, 0), (0, 0, 800, 600))
             font = pygame.font.SysFont('Times new roman', 64)
             text_3 = font.render('W I N', True, (255, 255, 0))
-            text_2 = font.render('G R E E N', True, green)
-            screen.blit(text_2, (340, 200))
+            text_1 = font.render('G R E E N', True, green)
+            screen.blit(text_1, (340, 200))
             screen.blit(text_3, (350, 280))        
         pygame.display.flip()  
     pygame.quit()  
